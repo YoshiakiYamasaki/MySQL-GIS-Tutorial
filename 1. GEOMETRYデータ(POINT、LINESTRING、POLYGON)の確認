@@ -67,6 +67,7 @@ SELECT * FROM geotest.test1;
 ■テストデータの挿入＆確認(POLYGON)
 TRUNCATE TABLE geotest.test1;
 INSERT INTO geotest.test1(geom) VALUES(ST_GeomFromText('POLYGON((0 0,5 0,5 5,0 5,0 0))'));
+
 ■テストデータの確認(MySQL Workbenchから)
 SELECT * FROM geotest.test1;
 
