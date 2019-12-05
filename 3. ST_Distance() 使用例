@@ -1,0 +1,9 @@
+■テスト用テーブルの作成
+CREATE TABLE test(id INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(30),location POINT SRID 4326);
+
+■テストデータの挿入
+INSERT INTO test(name, location) VALUES('Oracle Aoyama Center', ST_GeomFromText('POINT(35.67133 139.71857)', 4326));
+INSERT INTO test(name, location) VALUES('Akasaka Center Building', ST_GeomFromText('POINT(35.67686 139.73366)', 4326));
+
+■ST_Distance()関数を使って距離計算
+SELECT ST_Distance((SELECT location FROM test WHERE id=1), (SELECT location FROM test WHERE id=2), 'metre')/1000 AS Km FROM dual;
